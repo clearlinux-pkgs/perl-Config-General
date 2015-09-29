@@ -4,7 +4,7 @@
 #
 Name     : perl-Config-General
 Version  : 2.58
-Release  : 8
+Release  : 9
 URL      : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.58.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.58.tar.gz
 Summary  : ~
