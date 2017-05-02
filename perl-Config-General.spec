@@ -4,7 +4,7 @@
 #
 Name     : perl-Config-General
 Version  : 2.63
-Release  : 16
+Release  : 17
 URL      : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Summary  : unknown
