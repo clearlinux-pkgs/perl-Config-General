@@ -4,7 +4,7 @@
 #
 Name     : perl-Config-General
 Version  : 2.63
-Release  : 17
+Release  : 18
 URL      : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Summary  : unknown
@@ -32,6 +32,9 @@ doc components for the perl-Config-General package.
 %setup -q -n Config-General-2.63
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
@@ -45,7 +48,7 @@ fi
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make TEST_VERBOSE=1 test
 
 %install
@@ -62,9 +65,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/Config/General.pm
-/usr/lib/perl5/site_perl/5.24.0/Config/General/Extended.pm
-/usr/lib/perl5/site_perl/5.24.0/Config/General/Interpolated.pm
+/usr/lib/perl5/site_perl/5.26.0/Config/General.pm
+/usr/lib/perl5/site_perl/5.26.0/Config/General/Extended.pm
+/usr/lib/perl5/site_perl/5.26.0/Config/General/Interpolated.pm
 
 %files doc
 %defattr(-,root,root,-)
