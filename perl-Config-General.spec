@@ -4,7 +4,7 @@
 #
 Name     : perl-Config-General
 Version  : 2.63
-Release  : 18
+Release  : 19
 URL      : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Summary  : unknown
@@ -65,9 +65,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.0/Config/General.pm
-/usr/lib/perl5/site_perl/5.26.0/Config/General/Extended.pm
-/usr/lib/perl5/site_perl/5.26.0/Config/General/Interpolated.pm
+/usr/lib/perl5/site_perl/5.26.1/Config/General.pm
+/usr/lib/perl5/site_perl/5.26.1/Config/General/Extended.pm
+/usr/lib/perl5/site_perl/5.26.1/Config/General/Interpolated.pm
 
 %files doc
 %defattr(-,root,root,-)
