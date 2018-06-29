@@ -4,13 +4,13 @@
 #
 Name     : perl-Config-General
 Version  : 2.63
-Release  : 19
-URL      : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
-Source0  : http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
+Release  : 20
+URL      : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Summary  : unknown
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-Config-General-doc
+Requires: perl-Config-General-man
 
 %description
 NAME
@@ -20,12 +20,12 @@ use Config::General;
 $conf = new Config::General(-ConfigFile => "myconfig.rc");
 my %config = $conf->getall;
 
-%package doc
-Summary: doc components for the perl-Config-General package.
-Group: Documentation
+%package man
+Summary: man components for the perl-Config-General package.
+Group: Default
 
-%description doc
-doc components for the perl-Config-General package.
+%description man
+man components for the perl-Config-General package.
 
 
 %prep
@@ -38,7 +38,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
 ./Build
@@ -69,6 +69,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/site_perl/5.26.1/Config/General/Extended.pm
 /usr/lib/perl5/site_perl/5.26.1/Config/General/Interpolated.pm
 
-%files doc
+%files man
 %defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
+/usr/share/man/man3/Config::General.3
+/usr/share/man/man3/Config::General::Extended.3
+/usr/share/man/man3/Config::General::Interpolated.3
