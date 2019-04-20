@@ -4,11 +4,11 @@
 #
 Name     : perl-Config-General
 Version  : 2.63
-Release  : 32
+Release  : 33
 URL      : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libconfig-general-perl/libconfig-general-perl_2.63-1.debian.tar.xz
-Summary  : unknown
+Summary  : Generic Config Module
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Config-General-license = %{version}-%{release}
@@ -26,6 +26,7 @@ my %config = $conf->getall;
 Summary: dev components for the perl-Config-General package.
 Group: Development
 Provides: perl-Config-General-devel = %{version}-%{release}
+Requires: perl-Config-General = %{version}-%{release}
 
 %description dev
 dev components for the perl-Config-General package.
@@ -44,7 +45,7 @@ license components for the perl-Config-General package.
 cd ..
 %setup -q -T -D -n Config-General-2.63 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Config-General-2.63/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Config-General-2.63/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
