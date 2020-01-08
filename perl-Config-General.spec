@@ -4,14 +4,15 @@
 #
 Name     : perl-Config-General
 Version  : 2.63
-Release  : 35
+Release  : 36
 URL      : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libconfig-general-perl/libconfig-general-perl_2.63-1.debian.tar.xz
-Summary  : Generic Config Module
+Summary  : unknown
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Config-General-license = %{version}-%{release}
+Requires: perl-Config-General-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -40,18 +41,28 @@ Group: Default
 license components for the perl-Config-General package.
 
 
+%package perl
+Summary: perl components for the perl-Config-General package.
+Group: Default
+Requires: perl-Config-General = %{version}-%{release}
+
+%description perl
+perl components for the perl-Config-General package.
+
+
 %prep
 %setup -q -n Config-General-2.63
-cd ..
-%setup -q -T -D -n Config-General-2.63 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libconfig-general-perl_2.63-1.debian.tar.xz
+cd %{_builddir}/Config-General-2.63
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Config-General-2.63/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Config-General-2.63/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -61,7 +72,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -70,7 +81,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Config-General
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Config-General/deblicense_copyright
+cp %{_builddir}/Config-General-2.63/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Config-General/d507aaceb6d11adba0cf2787a8afe267130cd751
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -83,9 +94,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Config/General.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Config/General/Extended.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Config/General/Interpolated.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -95,4 +103,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Config-General/deblicense_copyright
+/usr/share/package-licenses/perl-Config-General/d507aaceb6d11adba0cf2787a8afe267130cd751
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Config/General.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Config/General/Extended.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Config/General/Interpolated.pm
