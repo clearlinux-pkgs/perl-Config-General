@@ -4,7 +4,7 @@
 #
 Name     : perl-Config-General
 Version  : 2.63
-Release  : 36
+Release  : 37
 URL      : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.63.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libconfig-general-perl/libconfig-general-perl_2.63-1.debian.tar.xz
@@ -81,7 +81,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Config-General
-cp %{_builddir}/Config-General-2.63/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Config-General/d507aaceb6d11adba0cf2787a8afe267130cd751
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Config-General/d507aaceb6d11adba0cf2787a8afe267130cd751
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -107,6 +107,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Config/General.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Config/General/Extended.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Config/General/Interpolated.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Config/General.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Config/General/Extended.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Config/General/Interpolated.pm
