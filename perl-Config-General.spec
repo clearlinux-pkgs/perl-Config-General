@@ -7,7 +7,7 @@
 #
 Name     : perl-Config-General
 Version  : 2.67
-Release  : 52
+Release  : 53
 URL      : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.67.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/Config-General-2.67.tar.gz
 Summary  : unknown
